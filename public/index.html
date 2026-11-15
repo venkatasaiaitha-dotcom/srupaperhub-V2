@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SR University PaperHub - Question Paper Portal</title>
+  <title>SR University PaperHub V2 - Question Paper Portal</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Supabase JS Client for Cloud Database & Storage -->
@@ -130,21 +130,74 @@
 
     <!-- Top Navigation Header -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 min-h-[76px] sm:min-h-[82px] flex items-center justify-between gap-3">
         
-        <!-- Left: Branding -->
-        <div class="flex items-center space-x-3 cursor-pointer" onclick="resetFiltersAndHome()">
-          <div class="w-10 h-10 bg-brandBlueDark text-white rounded-xl flex items-center justify-center shadow border border-blue-900">
-            <i class="fa-solid fa-building-columns text-base"></i>
+        <!-- Left: SRU Brand Block (Big Logo & Block-Style University Name) -->
+        <div class="flex items-center space-x-3 sm:space-x-3.5 cursor-pointer group p-1.5 sm:p-2 rounded-2xl hover:bg-slate-50/80 transition-all border border-transparent hover:border-slate-200/60" onclick="resetFiltersAndHome()" title="SR University PaperHub Home">
+          
+          <!-- Big SRU Logo Block -->
+          <div class="relative flex-shrink-0 transform group-hover:scale-105 transition-transform duration-200">
+            <svg class="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 drop-shadow-md" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sruGradNav" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#1e3a8a"/>
+                  <stop offset="60%" stop-color="#1e40af"/>
+                  <stop offset="100%" stop-color="#0f172a"/>
+                </linearGradient>
+                <linearGradient id="sruGoldNav" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#fbbf24"/>
+                  <stop offset="100%" stop-color="#d97706"/>
+                </linearGradient>
+              </defs>
+              <!-- Base Block with rounded corners -->
+              <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#sruGradNav)" stroke="url(#sruGoldNav)" stroke-width="1.8"/>
+              <rect x="5.5" y="5.5" width="53" height="53" rx="11" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <!-- University Crest (Pillars & Pediment) -->
+              <path d="M32 10.5 L20 16.5 L44 16.5 Z" fill="url(#sruGoldNav)"/>
+              <path d="M21 17.5 H43 V19.5 H21 Z" fill="#ffffff" opacity="0.95"/>
+              <rect x="22.5" y="20.5" width="2.5" height="6.5" rx="0.5" fill="#ffffff" opacity="0.95"/>
+              <rect x="27.5" y="20.5" width="2.5" height="6.5" rx="0.5" fill="#ffffff" opacity="0.95"/>
+              <rect x="34" y="20.5" width="2.5" height="6.5" rx="0.5" fill="#ffffff" opacity="0.95"/>
+              <rect x="39" y="20.5" width="2.5" height="6.5" rx="0.5" fill="#ffffff" opacity="0.95"/>
+              <rect x="20" y="27.5" width="24" height="2" rx="0.5" fill="#ffffff" opacity="0.95"/>
+              <!-- Bold SRU Monogram -->
+              <text x="32" y="44" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-weight="900" font-size="14.5" fill="#ffffff" text-anchor="middle" letter-spacing="1">SRU</text>
+              <!-- University Banner Line -->
+              <rect x="16" y="48.5" width="32" height="1.5" rx="0.75" fill="url(#sruGoldNav)"/>
+              <text x="32" y="55" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-weight="800" font-size="5.2" fill="#bfdbfe" text-anchor="middle" letter-spacing="1.2">UNIVERSITY</text>
+            </svg>
+            <span class="absolute -bottom-1 -right-1 bg-amber-500 text-slate-950 font-black text-[9px] px-1.5 py-0.2 rounded-full border border-white shadow-xs">V2</span>
           </div>
-          <div>
-            <div class="flex items-center space-x-2">
-              <span class="text-base font-extrabold text-slate-900 tracking-tight">SRU PaperHub</span>
+
+          <!-- SRU Name & Identity Block -->
+          <div class="flex flex-col justify-center">
+            <!-- SR UNIVERSITY block badge -->
+            <div class="flex items-center space-x-1.5">
+              <span class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white font-black text-[10px] sm:text-xs tracking-wider uppercase px-2 py-0.5 rounded-md shadow-xs flex items-center gap-1.5">
+                <i class="fa-solid fa-graduation-cap text-amber-300 text-[10px]"></i> SR UNIVERSITY
+              </span>
+              <span class="hidden md:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                WARANGAL
+              </span>
+            </div>
+
+            <!-- PaperHub Title + Badges -->
+            <div class="flex items-center space-x-2 mt-0.5">
+              <span class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-brandBlue transition">
+                PaperHub
+              </span>
               <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-blue-50 text-brandBlue border border-brandBlueBorder">
                 EXAM VAULT
               </span>
+              <span class="text-[10px] font-extrabold text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200">
+                V2
+              </span>
             </div>
-            <p class="text-[10px] text-slate-500 font-medium">SR University Academic Repository</p>
+
+            <!-- Subtitle -->
+            <p class="text-[10px] text-slate-500 font-medium leading-none mt-0.5">
+              Official Academic Question Paper Portal
+            </p>
           </div>
         </div>
 
@@ -213,7 +266,7 @@
           <span class="px-2 py-0.5 bg-blue-500 text-white rounded text-[10px] font-bold tracking-wide uppercase flex-shrink-0 animate-pulse">
             <i class="fa-solid fa-bullhorn mr-1"></i> NOTICE
           </span>
-          <span id="announcement-text" class="truncate text-slate-200">Welcome to SR University PaperHub! Browse past exam papers or upload new question papers to help your classmates.</span>
+          <span id="announcement-text" class="truncate text-slate-200">Welcome to SR University PaperHub V2! Browse past exam papers or upload new question papers to help your classmates.</span>
         </div>
         <div class="hidden sm:flex items-center space-x-3 text-[11px] text-slate-300 flex-shrink-0 pl-3">
           <span id="current-academic-term" class="font-mono-code font-semibold text-blue-300">AY 2025-2026</span>
@@ -224,19 +277,51 @@
     <!-- Main Content Body -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
 
-      <!-- Hero Header & Quick Stats -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-blue-50 rounded-full pointer-events-none opacity-60"></div>
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 relative z-10">
-          <div class="space-y-1.5 max-w-2xl">
-            <div class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-brandBlue border border-brandBlueBorder">
-              <i class="fa-solid fa-graduation-cap"></i>
-              <span>SR University Academic Archive</span>
+      <!-- Hero Header with Big SRU Brand Block & Quick Stats -->
+      <div class="bg-gradient-to-r from-white via-blue-50/25 to-white rounded-2xl p-6 border border-slate-200 shadow-sm relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-blue-100/40 rounded-full pointer-events-none opacity-60"></div>
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 relative z-10">
+          
+          <!-- Big SRU Identity & Academic Block -->
+          <div class="flex items-start sm:items-center gap-4 sm:gap-5">
+            <!-- Big SRU Logo Block in Hero -->
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-brandBlueDark via-blue-900 to-slate-950 p-1 shadow-md border-2 border-amber-400 flex items-center justify-center">
+                <svg class="w-full h-full drop-shadow-md" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 10.5 L20 16.5 L44 16.5 Z" fill="#fbbf24"/>
+                  <path d="M21 17.5 H43 V19.5 H21 Z" fill="#ffffff" opacity="0.95"/>
+                  <rect x="22.5" y="20.5" width="2.5" height="6.5" rx="0.5" fill="#ffffff" opacity="0.95"/>
+                  <rect x="27.5" y="20.5" width="2.5" height="6.5" rx="0.5" fill="#ffffff" opacity="0.95"/>
+                  <rect x="34" y="20.5" width="2.5" height="6.5" rx="0.5" fill="#ffffff" opacity="0.95"/>
+                  <rect x="39" y="20.5" width="2.5" height="6.5" rx="0.5" fill="#ffffff" opacity="0.95"/>
+                  <rect x="20" y="27.5" width="24" height="2" rx="0.5" fill="#ffffff" opacity="0.95"/>
+                  <text x="32" y="44" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-weight="900" font-size="14.5" fill="#ffffff" text-anchor="middle" letter-spacing="1">SRU</text>
+                  <rect x="16" y="48.5" width="32" height="1.5" rx="0.75" fill="#fbbf24"/>
+                  <text x="32" y="55" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-weight="800" font-size="5.2" fill="#bfdbfe" text-anchor="middle" letter-spacing="1.2">UNIVERSITY</text>
+                </svg>
+              </div>
             </div>
-            <h1 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Past Examination Question Papers</h1>
-            <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
-              Browse, search, and download question papers across all engineering regulations (R18 to R26). Upload exam papers to help your batchmates.
-            </p>
+
+            <!-- Block Name & Details -->
+            <div class="space-y-1.5 max-w-2xl">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-black bg-blue-900 text-white shadow-xs">
+                  <i class="fa-solid fa-graduation-cap text-amber-300"></i>
+                  <span>SR UNIVERSITY</span>
+                </span>
+                <span class="inline-flex items-center space-x-1 px-2 py-0.5 rounded-md text-[11px] font-bold bg-blue-50 text-brandBlue border border-brandBlueBorder">
+                  <i class="fa-solid fa-vault"></i>
+                  <span>Academic Archive V2</span>
+                </span>
+                <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  <i class="fa-solid fa-check-circle mr-1"></i> Verified Papers
+                </span>
+              </div>
+              <h1 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Past Examination Question Papers</h1>
+              <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                Browse, search, and download authentic question papers across all engineering regulations (R18 to R26). Upload exam papers to help your batchmates.
+              </p>
+            </div>
           </div>
 
           <!-- Fast Quick Metrics Cards -->
@@ -383,10 +468,15 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 mt-auto py-6">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <div class="flex items-center space-x-2">
-          <span class="font-bold text-slate-700">SR University PaperHub</span>
-          <span>•</span>
-          <span>School of Computer Science &amp; AI &amp; School of Engineering</span>
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-blue-900 text-white flex items-center justify-center font-black text-xs border border-amber-400 shadow-xs">
+            SRU
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="font-bold text-slate-800">SR University PaperHub V2</span>
+            <span>•</span>
+            <span>School of Computer Science &amp; AI &amp; School of Engineering</span>
+          </div>
         </div>
         
         <!-- Quick Public Links -->
